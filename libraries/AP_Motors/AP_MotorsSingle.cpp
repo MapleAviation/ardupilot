@@ -174,13 +174,13 @@ void AP_MotorsSingle::output_armed_stabilizing()
 
     // combine roll, pitch and yaw on each actuator
     // front servo
-    actuator[0] = rp_scale * roll_thrust - yaw_thrust;
+    actuator[0] = rp_scale * roll_thrust + yaw_thrust;
     // right servo
     actuator[1] = rp_scale * pitch_thrust - yaw_thrust;
     // rear servo
     actuator[2] = -rp_scale * roll_thrust - yaw_thrust;
     // left servo
-    actuator[3] = -rp_scale * pitch_thrust - yaw_thrust;
+    actuator[3] = -rp_scale * pitch_thrust + yaw_thrust;
 
     // calculate the minimum thrust that doesn't limit the roll, pitch and yaw forces
     thrust_min_rpy = MAX(MAX(fabsf(actuator[0]), fabsf(actuator[1])), MAX(fabsf(actuator[2]), fabsf(actuator[3])));
