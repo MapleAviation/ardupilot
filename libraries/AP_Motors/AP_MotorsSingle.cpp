@@ -174,11 +174,11 @@ void AP_MotorsSingle::output_armed_stabilizing()
 
     // combine roll, pitch and yaw on each actuator
     // front servo
-    actuator[0] = -rp_scale * roll_thrust + yaw_thrust;
+    actuator[0] = rp_scale * roll_thrust + yaw_thrust;
     // right servo
     actuator[1] = rp_scale * pitch_thrust - yaw_thrust;
     // rear servo
-    actuator[2] = -rp_scale * roll_thrust + yaw_thrust;
+    actuator[2] = rp_scale * roll_thrust + yaw_thrust;
     // left servo
     actuator[3] = rp_scale * pitch_thrust - yaw_thrust;
 
